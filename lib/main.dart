@@ -13,8 +13,9 @@ class ExpensesApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-            primarySwatch: Colors.indigo,
-            colorScheme: ColorScheme.light(secondary: Colors.green.shade400)),
+            colorScheme: ColorScheme.light(
+                primary: Colors.indigo,
+                secondary: Colors.green.shade400)),
         home: MyHomePage());
   }
 }
