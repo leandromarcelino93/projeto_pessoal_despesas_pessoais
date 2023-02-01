@@ -13,7 +13,8 @@ class ExpensesApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-            primarySwatch: Colors.indigo, accentColor: Colors.green.shade400),
+            primarySwatch: Colors.indigo,
+            colorScheme: ColorScheme.light(secondary: Colors.green.shade400)),
         home: MyHomePage());
   }
 }
@@ -69,24 +70,34 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+
+    final appBar = AppBar(
+      title: const Text('Despesas Pessoais'),
+      actions: [
+        IconButton(
+          icon: const Icon(Icons.add),
+          onPressed: () => _openTransactionFormModal(context),
+        )
+      ],
+    );
+
+    ///MediaQuery
+    final availableHeight = MediaQuery.of(context).size.height -
+        appBar.preferredSize.height - MediaQuery.of(context).padding.top;
+
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Despesas Pessoais'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.add),
-            onPressed: () => _openTransactionFormModal(context),
-          )
-        ],
-      ),
+      appBar: appBar,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Container(
+              height: availableHeight * 0.25,
               child: Chart(_recentTransactions),
             ),
-            TransactionList(_transactions, _deleteTransactions),
+            Container(
+                height: availableHeight * 0.65,
+                child: TransactionList(_transactions, _deleteTransactions)),
             FloatingActionButton(
               child: const Icon(Icons.add),
               onPressed: () => _openTransactionFormModal(context),
