@@ -20,6 +20,12 @@ Projeto realizado para fins didáticos e baseado no projeto de referência da se
 * Utilização de DatePicker
 * Pacote de internacionalização (intl) para formatação de datas
 
+* Ajustes de Layout vistos na seção 5
+   * Conceitos sobre telas responsivas e adaptativas
+   * MediaQuery 
+   * TextScaleFactor 
+   * LayoutBuilder   
+
 ## :hammer_and_wrench:	Como rodar o projeto? 
 
 * Preferencialmente, tenha uma IDE (Integrated Development Environment - Ambiente de desenvolvimento integrado) instalada em sua máquina, que pode ser Android Studio, IntelliJ ou um editor como o VSCode. 
