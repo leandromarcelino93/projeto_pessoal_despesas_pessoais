@@ -25,6 +25,8 @@ Projeto realizado para fins didáticos e baseado no projeto de referência da se
    * MediaQuery 
    * TextScaleFactor 
    * LayoutBuilder   
+   * Ajustes para exibição na orientação Paisagem   
+   * Aproveitamento de larguras maiores através de condicionais
 
 ## :hammer_and_wrench:	Como rodar o projeto? 
 
