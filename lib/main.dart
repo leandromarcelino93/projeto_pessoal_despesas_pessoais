@@ -72,6 +72,9 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
 
+    bool isLandscape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
+
     final appBar = AppBar(
       title: const Text('Despesas Pessoais'),
       actions: [
@@ -93,15 +96,22 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Container(
-              height: availableHeight * 0.25,
+              height: availableHeight * (isLandscape ? 0.65 : 0.24),
+              //Se tiver em paisagem, exibir 65% da tela, caso contrário, 24%
               child: Chart(_recentTransactions),
             ),
             Container(
                 height: availableHeight * 0.65,
                 child: TransactionList(_transactions, _deleteTransactions)),
-            FloatingActionButton(
-              child: const Icon(Icons.add),
-              onPressed: () => _openTransactionFormModal(context),
+            Padding(
+              padding: isLandscape
+                  ? EdgeInsets.only(
+                      bottom: 10 + MediaQuery.of(context).viewInsets.bottom)
+                  : EdgeInsets.only(bottom: 0),
+              child: FloatingActionButton(
+                child: const Icon(Icons.add),
+                onPressed: () => _openTransactionFormModal(context),
+              ),
             ),
           ],
         ),

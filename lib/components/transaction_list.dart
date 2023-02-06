@@ -11,29 +11,32 @@ class TransactionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return transactions.isEmpty
-        ? Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              const SizedBox(
-                height: 40,
-              ),
-              const Text('Nenhuma transação foi cadastrada até o momento.',
-                  style: TextStyle(
-                    fontSize: 18,
-                  ),
-                  textAlign: TextAlign.center),
-              const SizedBox(
-                height: 40,
-              ),
-              Container(
-                height: 150,
-                child: Image.asset(
-                  'assets/images/aguardando_registro.jpg',
-                  fit: BoxFit.cover,
+        ? LayoutBuilder(builder: (ctx, constraints) {
+          //Ajustes para layout na orientação paisagem
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                  SizedBox(
+                    height: constraints.maxHeight * 0.1,
                 ),
-              ),
-            ],
-          )
+                const Text('Nenhuma transação foi cadastrada até o momento.',
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                    textAlign: TextAlign.center),
+                  SizedBox(
+                  height: constraints.maxHeight * 0.1,
+                ),
+                Container(
+                  height: constraints.maxHeight * 0.4,
+                  child: Image.asset(
+                    'assets/images/aguardando_registro.jpg',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ],
+            );
+          })
         : ListView.builder(
             itemCount: transactions.length,
             itemBuilder: (ctx, index) {
@@ -57,11 +60,18 @@ class TransactionList extends StatelessWidget {
                   subtitle: Text(
                     DateFormat('d MMM y').format(tr.date),
                   ),
-                  trailing: IconButton(
-                    onPressed: () => onRemove(tr.id),
-                    icon: const Icon(Icons.delete),
-                    color: Theme.of(context).errorColor,
-                  ),
+                  trailing: MediaQuery.of(context).size.width > 350
+                  //Condicional para aproveitar situações em que o dispositivo possui larguras maiores
+                      ? TextButton.icon(
+                          onPressed: () => onRemove(tr.id),
+                          icon: Icon(Icons.delete),
+                          label: Text('Excluir'),
+                        )
+                      : IconButton(
+                          onPressed: () => onRemove(tr.id),
+                          icon: Icon(Icons.delete),
+                          color: Theme.of(context).errorColor,
+                        ),
                 ),
               );
             },
