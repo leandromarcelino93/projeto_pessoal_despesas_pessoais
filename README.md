@@ -1,6 +1,6 @@
 ## Apresentação 
 
-Projeto realizado para fins didáticos e baseado no projeto de referência da seção 4 do curso da Cod3r, cujo qual possui objetivo voltado a criar um aplicativo de despesas pessoais, que possui entre suas funcionalidades, a possibibilidade de registrar e excluir eventuais despesas, atribuindo ainda a elas a data específica em que ocorreu a transação. E na parte superior temos um gráfico que exibe a porcentagem que esses gastos de cada dia representam dentro do orçamento dos últimos sete dias da semana.
+Projeto realizado para fins didáticos e baseado no projeto de referência da seção 4 do curso da Cod3r, cujo qual possui objetivo voltado a criar um aplicativo de despesas pessoais, que possui entre suas funcionalidades, a possibilidade de registrar e excluir eventuais despesas, atribuindo ainda a elas a data específica em que ocorreu a transação. E na parte superior temos um gráfico que exibe a porcentagem que esses gastos de cada dia representam dentro do orçamento dos últimos sete dias da semana.
 
 ## Demonstração 
 
