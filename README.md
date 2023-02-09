@@ -19,7 +19,6 @@ Projeto realizado para fins didáticos e baseado no projeto de referência da se
 * ListTile
 * Utilização de DatePicker
 * Pacote de internacionalização (intl) para formatação de datas
-
 * Ajustes de Layout vistos na seção 5
    * Conceitos sobre telas responsivas e adaptativas
    * MediaQuery 
